@@ -122,7 +122,7 @@ public:
 		if(!bBigImage){
 			current.saveImage(ofToString(currentTile)+".png");
 		} else {
-			final.addPixels(currentRow, currentCol, current.getPixels());
+			final.addPixels(currentRow, currentCol, current.getPixels().getData());
 		}
 		if(currentCol==steps-1){
 			currentCol = 0;

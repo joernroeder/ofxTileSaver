@@ -1,12 +1,12 @@
-#ifndef _TEST_APP
-#define _TEST_APP
+#ifndef _OF_APP
+#define _OF_APP
 
 
 #include "ofMain.h"
 #include "ofxTileSaver.h"
 
 
-class testApp : public ofBaseApp{
+class ofApp : public ofBaseApp{
 
 public:
 	void setup();

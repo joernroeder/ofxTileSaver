@@ -43,8 +43,8 @@ public:
 		width = colWidth * rows;
 		height = rowHeight * columns;
 
-		bigImagePixels =  new unsigned char[width*height*3];
-		allocate(width, height, OF_IMAGE_COLOR);
+		bigImagePixels =  new unsigned char[width*height*4];
+		allocate(width, height, OF_IMAGE_COLOR_ALPHA);
 
 		bUseTexture = false;
 	};
@@ -58,18 +58,19 @@ public:
 		for(int x=0; x<colWidth; x++){
 			for(int y=0; y<rowHeight; y++){
 
-				long srcPos = ((y * colWidth) + x) * 3;
-				long dstPos = (((y + startY) * width) + x + startX) * 3;
+				long srcPos = ((y * colWidth) + x) * 4;
+				long dstPos = (((y + startY) * width) + x + startX) * 4;
 
 				bigImagePixels[dstPos] = screenPixels[srcPos];
 				bigImagePixels[dstPos+1] = screenPixels[srcPos+1];
 				bigImagePixels[dstPos+2] = screenPixels[srcPos+2];
+                bigImagePixels[dstPos+3] = screenPixels[srcPos+3];
 			}
 		}
 	};
 
 	void done(string fileName, bool _flipY){
-		setFromPixels(bigImagePixels, width, height, OF_IMAGE_COLOR);
+		setFromPixels(bigImagePixels, width, height, OF_IMAGE_COLOR_ALPHA);
 		if(_flipY)
 		     flipY();
 		saveImage(fileName);
