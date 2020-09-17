@@ -24,6 +24,8 @@ public:
 	ofxTileSaver saver;
 
 	int r;
+    
+    ofFbo fbo;
 
 };
 

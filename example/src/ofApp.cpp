@@ -20,9 +20,10 @@ void ofApp::update(){
 void ofApp::draw(){
 	//use this is you have custom camera setup:
 
-	//saver.setCameraData(pos, eye, up);
+//	saver.setCameraData(ofVec3f(1000, 10, 1000), ofVec3f(1000, 10, 1000), ofVec3f(1000, 10, 1000));
 	//saver.setPerspectiveData(fov, aspect, zNear, zFar);
 
+    
 	saver.begin();
 	ofSetCircleResolution(100);
 	ofNoFill();
