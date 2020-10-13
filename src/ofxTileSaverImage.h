@@ -61,10 +61,11 @@ public:
 				long srcPos = ((y * colWidth) + x) * 4;
 				long dstPos = (((y + startY) * width) + x + startX) * 4;
 
-				bigImagePixels[dstPos] = screenPixels[srcPos];
+				// BGR -> RGB
+				bigImagePixels[dstPos] = screenPixels[srcPos+2];
 				bigImagePixels[dstPos+1] = screenPixels[srcPos+1];
-				bigImagePixels[dstPos+2] = screenPixels[srcPos+2];
-                bigImagePixels[dstPos+3] = screenPixels[srcPos+3];
+				bigImagePixels[dstPos+2] = screenPixels[srcPos];
+                		bigImagePixels[dstPos+3] = 255; //screenPixels[srcPos+3];
 			}
 		}
 	};
